@@ -1,69 +1,67 @@
 # C# to Common C
 _© 2022 Daniel Giversen_
 
-The foundation is the books __C for Dummies__ (Gookin 2020) and __C Reference Guide_ (Kernighan 1988). The goal is to help experienced C# developers transition their experience to C programming.
+The foundation is the books __C Programming for Dummies__ (Gookin 2020) and __C Programming Language_ (Kernighan & Ritchie 1988). The goal is to help experienced C# developers transition their experience to C programming.
 
-Derfor skal der være en dagligt opdateret, lokal _databasestub_, med kopi af disse data, der kan tilgås fra andre systemer og programmerer f.eks. i.f.t. _intranet_, _3-i-1 undersøgelse_, _MOCH_ og _kantine_.
+It is a project in continous development, along the path, that I comprehend the C-languge. This repository will include the relevant 
 
-## Databasestubben er en MS SQL-database (UCDSQL2012 > SD)
-- databasen er designet i.h.t. tredje normalform under særlig hensyn til GDPR (Databeskyttelsesloven - tidl. Persondataloven)
-- for at fungere optimalt med SDWS er der undgået __FOREIGN KEYS__
-- der benyttes views og stored procedures
+## Key differences between C# and C
+- c has no _string_ keyword - use char instead e.g. `char *stringField`
+- no _namespaces_
+- not __Object Oriented Programming__ (OOP) oriented 
+- no _garbage collection_
+- _C_ has pointers, which is considered _unsafe code_ in _C#_
 
-## SD Database Suite er udviklet fra bunden i C# 10/.NET 6
-- er udviklet med en 3-niveauarkitektur (3 tier) i.h.t. kontemporære OOP-standarder under særlig hensyn til livscyklus, sikkerhed & holdbarhed
-- er dokumenteret m.h.p. senere behov for opdatering og videreudvikling
+## Common C
+Along with the transition, I will develop a minor language library called [_Common C_][1]. The main purpose is to achieve optimized _ahead of time_ compilation. Atm. you need to _build_ the C# code, and then _publish_ it as a _single file application_ to achieve that goal. but _trimming_ does not work well with _.NET_, resulting in bulky file sizes.
 
-## Suitet består af
-- Konsolapplikationen __Klon Afhængighedsdata__ (CloneDependencyData)
-  - kloner afhængighedsdata fra _SDWS_
-  – kører én gang ved (gen)opretning af databasestub
-- Konsolapplikationen __Klon Persondata__ (ClonePersonData)
-  - kloner medarbejderdata fra _SDWS_
-  - kører én gang ved (gen)opretning af databasestub
-- Konsolapplikationen __Opdater Afhængighedsdata__ (UpdateDependencyData)
-  - kloner afhængighedsdata fra _SDWS_
-  – kører én gang ugentligt
-- Konsolapplikationen __Opdater Persondata__ (UpdatePersonData)
-  - henter medarbejderdata fra _SDWS_
-  - kører én gang dagligt
-- ~~Konsolapplikationen __AD-Berigelse__ (ADEnrich)~~
-  - ~~beriger databasestubben med data fra _Active Directory_~~ 
-  - ~~kører én gang dagligt efter opdatering~~
-- Konsolapplikationen __Ansættelsesophørsadvarsel__ (XmAlert)
-  - genererer en liste over brugere, der snart ophører
-  - kører én gang dagligt efter opdatering
-- Konsolapplikationen __Mappeoprydning__ (CleanFolders)
-  - sletter forældede filer fra programmapper
-  - typisk efter 30 dage
-  - logfiler dog først efter 5 år
-- Konsolapplikationen __Databasestuboptimering__ (DatabaseOptimize)
-  - sorterer emailadresser, fjerner dubletter, beriger fra Active Directory m.v. 
-  - kører én gang dagligt efter opdatering
-- Konsolapplikationen __Net-API__ (NetAPI
-  - ~~api til brug for intranet samt eksterne applikationer~~
-  - ~~genstartes dagligt samt ved fejl~~
-  - p.t. stoppet, da fejlbehæftet
-- Windowsapplikationen __SD Database Access__ (SdDbAccess)
-  - henter data fra ~~Net-API'et~~ _databasestubben_ i _csv_, _xml_ og _json_ format
-  - til import i eksterne applikationer uden direkte implementering 
+Along the way, I might add options for . For now _OOP_ can only be achieved by making libraries with the reused code. Avoid naming variables, functions etc. with identical names as i C#. It is allowed in _C_, but might result in unintended behaviour (read __result in bugs__).
 
-## Klargøring af program i Visual Studio
-- Kompilér biblioteks- & applikationsprojekter (Sæt til _Release_ => Højreklik på _Solution_ => Klik på _Rebuild Solution_)
-- Pak programmer (Højreklik hvert projekt => Klik på _Publish..._)
-- Kompilér installationsprojekt (Sæt til _Release_ => Højreklik på projektet => Klik på _Rebuild_)
-- Kopier installationsfiler til beskyttet fællesdrev
+The inspiration will be from _C#_,_C++_, _Objective-C_, _Object Pascal_, Comal80 etc. to even out the differences between _C#_ and _C_.
 
-## Anvendelse
-- __SdSuite__ installeres på __UDCSD__ (server)
-- __SdDbAccess__ installeres lokalt og/eller i __Citrix__
+In a perfect world _c# code_ could be compiled with a _C compiler_, but this is not yet possible. In time _Common C_ might be _THE LANGUAGE to rule them all!_ as well as the favoured programming language for beginners.
 
-## Planlagte/ønskede forbedringer
-- Oprettelse af replikationsdatabase
-  - overflødiggør _CloneDependencyData_, _ClonePersonData_, _UpdateDependencyData_ & _UpdatePersonData_
-  - undgår unødige mellemled (_SDWS_ & _mumbo-jumbo_-business-applikationer)
-- Optimering af programpakning
+## Guide to reading _C for Dummies_
+As an experienced C# programmer, the chapters 1-10 can be skimmed/spipped with a few exceptions:
+- 
+- 
+- 
+- 
+- 
+
+## Development in Visual Studio
+### Previous requirement
+- Download and install [_Visual Studio 2022 Community Edition_](https://visualstudio.microsoft.com/downloads/) with
+	-_Linq to SQL tools_
+	- relevant _workloads_
+		- _.NET desktop development_
+		- _Desktop development with C++_
+		- _Mobile development with C++_
+		- _Universal Windows Platform_
+		- _Mobile Development with C++_
+		- _Linux and embedded development with C++_
+		- _Data Storage and processing_
+- Download source code from [_Common C_ ](https://github.com/gywerd/commonc) and place it in your project
+
+You might not need all workloads at first, but most will be needed for future development.
+
+## Business as usual
+I shall not elaborate on using Visual Studio, but _Microsoft_ (MS) has a [tutorial][2]. The objective is how to create a new Common C project:
+- set language as _C++_
+- set platform as _All platforms_
+- set project type as _Console_
+- choose _Console App_
+- press _Next_
+
+## Intended improvements
+- __Common C__ _Nuget-package_ with templates
+- _OOP_ and _namespaces_ in _Common C
 - Få Net-API'et til at virke
 
+## References
+[1]: https://github.com/gywerd/commonc
+[2]: https://visualstudio.microsoft.com/vs/getting-started/
+
 ## Litteratur
-Gookin, D. (2020). C For Dummies 
+Gookin, D. (2020). _C Programming For Dummies_ (2nd ed.). Hoboken, NJ: John Wiley & Sons, Inc.
+Kernighan, B. & Ritchie, D. (1988). _C Programming Language_ (2nd ed.). London: Pearson.
