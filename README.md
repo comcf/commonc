@@ -1,7 +1,7 @@
 # C# to Common C
 _© 2022 Daniel Giversen_
 
-The foundation is the books __C Programming for Dummies__ (Gookin 2020) and __C Programming Language_ (Kernighan & Ritchie 1988). The goal is to help experienced C# developers transition their experience to C programming.
+The foundation is the books __C Programming for Dummies__ (Gookin 2020) and __C Programming Language__ (Kernighan & Ritchie 1988). The goal is to help experienced C# developers transition their experience to C programming.
 
 It is a project in continous development, along the path, that I comprehend the C-languge. This repository will include the relevant 
 
