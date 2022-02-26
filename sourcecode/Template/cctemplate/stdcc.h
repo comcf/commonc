@@ -1,23 +1,27 @@
-/* stdcc.h */
+// stdcc.h
 #include "stdio.h"
 #include "stdlib.h"
 #include "stdint.h"
 #include "stdbool.h"
 #include "string.h"
 
-typedef int (*printf_alias)(const char *format, ...);
-#define print(printf_alias) print(printf_alias)
-#define Write(printf_alias) printf(printf_alias)
-
-typedef int (*puts_alias)(const char *format);
-#define WriteLine(puts_alias) puts(puts_alias)
-#define println(puts_alias) puts(puts_alias)
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
 
 typedef uint8_t byte;
 typedef int8_t sbyte;
-typedef uint16_t slab;
-typedef int16_t sslab;
-typedef uint32_t slob;
-typedef int32_t sslob;
-typedef uint64_t word;
+
+typedef int8_t int8;
+typedef int16_t int16;
+typedef int32_t int32;
+typedef int64_t int64;
+
+typedef uint8_t uint8;
+typedef uint16_t uint16;
+typedef uint32_t uint32;
+typedef uint64_t uint64;
+
 typedef char *string;
+
+extern int print(const char* format);

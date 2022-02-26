@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="program.c" />
+    <ClCompile Include="stdcc.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
