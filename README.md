@@ -1,18 +1,26 @@
 # C# to Common C
 ## THE LANGUAGE to rule them all!
 
-There is too many C dialects. The goal is to create a truly platform independent superset of C2x, that unites the best of the variousdialects with the ease of _C#_ and the intentions of Objective-C without the .NET runtime
+There is too many C dialects. The goal is to create a truly platform independent superset of C2x, that unites the best of the various dialects with the ease of _C#_ and the intentions of Objective-C without the .NET runtime
 
 It is a minor library called _Common C_ will be from _C#_,_C++_, _Objective-C_, _Object Pascal_, Comal80 etc. to even out the differences between _C#_ and _C_.
 
 In a perfect world _c# code_ could be compiled with a _C compiler_, but this is not yet possible. In time _Common C_ might be the favoured programming language for beginners and experienced programmers.
 
 ## Key differences between C# and C
-- c has no _string_ keyword - use char instead e.g. `char *stringField`
-- no _namespaces_
-- not __Object Oriented Programming__ (OOP) oriented 
-- no _garbage collection_
+- _C_ has no `string` or `byte` keywords
+- _C_ has no `namespaces`
+- _C_ is not __Object Oriented Programming__ (OOP) 
+- _C_ has no _garbage collection_
 - _C_ has pointers, which is considered _unsafe code_ in _C#_
+
+## Common C
+- adds `string` (from `char *`)
+- adds `byte` (from `uint8_t`)
+- adds `int8`, `int16`, `int32` & `int64` (from `int8_t`, `int16_t`, `int32_t` & `int64_t`)
+- adds _legacy_ command `print()` (familiar from ALGOL, Pascal etc.) 
+- use `printf()` instead of `Console.Write()`& `Console.WriteLine()`
+
 
 ## Intended improvements
 - __Common C__ _Nuget-package_ with templates
