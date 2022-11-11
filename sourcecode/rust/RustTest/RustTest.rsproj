@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) Daniel Giversen. All Rights reserved. -->
+<!-- Licenced under Proprietary License. See LICENSE.txt -->
+<Project DefaultTargets="Build;Rebuild;Clean" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+
+	<Target Name="Build">
+			<Exec Command="ECHO Building dev" />
+			<Exec Command="rustc --crate-type=lib src\trial.rs --out-dir Debug" />
+			<Exec Command="rustc --crate-type=bin src\rust.rs --extern trial=Debug\libtrial.rlib --out-dir Debug" />
+
+	</Target>
+	
+	<Target Name="Rebuild">
+			<Exec Command="ECHO Rebuilding release" />
+			<Exec Command="rustc --crate-type=lib src\trial.rs --out-dir Release" />
+			<Exec Command="rustc --crate-type=bin src\rust.rs --extern trial=Release\libtrial.rlib --out-dir Release" />
+	</Target>
+	
+	<Target Name="Clean" >
+			<Exec Command="ECHO Cleaning project" />
+			<Exec Command="if exist Debug rd /s /q Debug" />
+			<Exec Command="if exist Release rd /s /q Release" />
+	</Target>
+	
+	
+</Project>
