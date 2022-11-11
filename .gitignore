@@ -13,3 +13,8 @@
 /sourcecode/Template/.vs
 /sourcecode/Template/x64
 /sourcecode/Template/Template/x64
+/sourcecode/rust/.vs
+/sourcecode/rust/RustTest/.vs
+/sourcecode/rust/RustTest/bin
+/sourcecode/rust/RustTest/Debug
+/sourcecode/rust/RustTest/Release
